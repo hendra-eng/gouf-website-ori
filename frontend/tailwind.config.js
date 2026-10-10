@@ -9,12 +9,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Cabinet Grotesk"', 'sans-serif'],
+        sans: ['Satoshi', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
+        paper: '#FAF9F5', ink: '#0B2220', inkMuted: '#4B6360', line: '#E2E8E5',
+        brand: { DEFAULT: '#0D4746', hover: '#093837', light: '#155E5B', deep: '#071817' },
+        mint: { DEFAULT: '#34D399', glow: '#A7F3D0' },
+        emerald: { ...require('tailwindcss/colors').emerald, DEFAULT: '#10B981' },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
