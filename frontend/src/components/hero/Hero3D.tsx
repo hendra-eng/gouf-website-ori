@@ -1,7 +1,7 @@
 import { Component, Suspense, useMemo, type ReactNode } from "react";
 import { Canvas } from "@react-three/fiber";
 import { motion, useReducedMotion } from "framer-motion";
-import DashboardMock from "@/components/DashboardMock";
+import { LogoMark } from '@/components/Logo';
 import Hero3DScene from "@/components/hero/Hero3DScene";
 
 class SceneBoundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
@@ -29,16 +29,20 @@ const CHIPS = [
   { label: "Ruang mencoba", value: "Tanpa akun asli", cls: "right-6 bottom-2", delay: 3 },
 ];
 
+function StaticLogo() {
+  return <div className="static-hero-logo" data-testid="hero-3d-fallback" role="img" aria-label="Logo zafeb dengan tampilan tiga dimensi"><LogoMark size={310}/></div>;
+}
+
 export default function Hero3D() {
   const reduce = useReducedMotion();
   const webgl = useMemo(() => typeof window !== "undefined" && hasWebGL(), []);
 
-  if (reduce || !webgl) return <DashboardMock />;
+  if (reduce || !webgl) return <StaticLogo />;
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[600px]" data-testid="hero-3d">
       <div className="pointer-events-none absolute inset-0 rounded-full bg-mint/20 blur-3xl" />
-      <SceneBoundary fallback={<DashboardMock />}>
+      <SceneBoundary fallback={<StaticLogo />}>
         <Canvas
           shadows
           dpr={[1, 1.6]}

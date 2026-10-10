@@ -6,7 +6,7 @@ import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import DashboardMock from "@/components/DashboardMock";
-import ProductPreview, { Workflow } from '@/components/ProductPreview';
+import { Workflow } from '@/components/ProductPreview';
 import Hero3D from "@/components/hero/Hero3D";
 import CtaBanner from "@/components/CtaBanner";
 import PricingTable from "@/components/PricingTable";
@@ -42,7 +42,7 @@ export default function Home() {
       {/* HERO */}
       <section className="home-hero relative overflow-hidden">
         <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-mint/15 blur-3xl" />
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 pt-14 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:pb-28 lg:pt-20">
+        <div className="mx-auto grid grid-cols-1 max-w-7xl items-center gap-12 px-4 pb-20 pt-14 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:pb-28 lg:pt-20">
           <div className="lg:col-span-6">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -106,7 +106,7 @@ export default function Home() {
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             data-testid="hero-visual"
           >
-            <ProductPreview />
+            <Hero3D />
           </motion.div>
         </div>
       </section>
@@ -166,9 +166,7 @@ export default function Home() {
               </Link>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <Hero3D />
-          </Reveal>
+          <div className="hidden lg:block" aria-hidden="true" data-testid="demo-teaser-empty-visual" />
         </div>
       </section>
 
