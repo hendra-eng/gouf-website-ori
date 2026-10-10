@@ -31,8 +31,9 @@ export const NAV_ITEMS: NavItem[] = [
       {
         title: "Platform",
         links: [
-          { label: "Laporan Keuangan", desc: "Laba rugi, neraca, dan arus kas", to: "/fitur/laporan-keuangan", icon: FileBarChart },
-          { label: "Kelola Klien", desc: "Konteks kerja untuk setiap perusahaan", to: "/fitur/kelola-klien", icon: Users },
+          { label: "Laba & Arus Kas", desc: "Pahami hasil usaha dan uang tersedia", to: "/fitur/arus-kas", icon: LayoutDashboard },
+          { label: "Pembukuan & Transaksi", desc: "Catat rapi, telusuri dengan jelas", to: "/fitur/pembukuan", icon: ArrowLeftRight },
+          { label: "Laporan Keuangan", desc: "Baca kinerja dan posisi keuangan", to: "/fitur/laporan-keuangan", icon: FileBarChart },
           { label: "Anggaran & Proyeksi", desc: "Bandingkan asumsi dan skenario", to: "/fitur/anggaran-proyeksi", icon: LineChart },
           { label: "Analisis & AI", desc: "Dari angka menjadi penjelasan", to: "/fitur/analisis-ai", icon: Sparkles },
         ],
@@ -72,7 +73,7 @@ export const NAV_ITEMS: NavItem[] = [
         links: [
           { label: "Berdasarkan Industri", desc: "Ritel, jasa, F&B, distribusi, dan lainnya", to: "/industri", icon: Factory },
           { label: "Perbandingan", desc: "zafeb vs spreadsheet vs software lain", to: "/perbandingan", icon: Scale },
-          { label: "Kisah Pelanggan", desc: "Skenario ilustratif, bukan testimoni nyata", to: "/kisah-pelanggan", icon: BookOpenText },
+          { label: "Contoh Penggunaan", desc: "Laba, pembukuan, dan rencana biaya", to: "/kisah-pelanggan", icon: BookOpenText },
         ],
       },
     ],

@@ -58,8 +58,8 @@ export default function Faq() {
         <div className="mt-8 space-y-3" data-testid="faq-list">
           {items.map((f, i) => (
             <Reveal key={f.q} delay={Math.min(i * 0.04, 0.3)}>
-              <details className="group card overflow-hidden p-0" data-testid="faq-item">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-bold text-ink transition-colors group-hover:text-brand [&::-webkit-details-marker]:hidden">
+              <details className="group card overflow-hidden p-0" data-testid={`faq-item-${i}`}>
+                <summary data-testid={`faq-toggle-${i}`} className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-bold text-ink transition-colors group-hover:text-brand [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <span className="font-mono text-brand transition-transform duration-300 group-open:rotate-45">+</span>
                 </summary>
@@ -70,7 +70,7 @@ export default function Faq() {
           {items.length === 0 && (
             <div className="card p-10 text-center text-sm text-inkMuted" data-testid="faq-empty">
               Tidak ada pertanyaan yang cocok dengan pencarian Anda.{" "}
-              <a href="/kontak" className="font-bold text-brand hover:underline">Tanyakan langsung ke kami</a>.
+              <a href="/kontak" data-testid="faq-empty-contact" className="font-bold text-brand hover:underline">Tanyakan langsung ke kami</a>.
             </div>
           )}
         </div>

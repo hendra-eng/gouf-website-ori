@@ -22,7 +22,7 @@ const COLUMNS: { title: string; links: { label: string; to: string }[] }[] = [
       { label: "Industri", to: "/industri" },
       { label: "Untuk Akuntan", to: "/akuntan" },
       { label: "Perbandingan", to: "/perbandingan" },
-      { label: "Kisah Pelanggan", to: "/kisah-pelanggan" },
+      { label: "Contoh Penggunaan", to: "/kisah-pelanggan" },
     ],
   },
   {

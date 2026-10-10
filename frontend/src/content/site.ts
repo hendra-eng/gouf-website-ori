@@ -3,7 +3,7 @@ export const SITE = {
   company: "zafeb",
   tagline: "Keuangan jelas. Keputusan tepat.",
   description:
-    "zafeb membantu pemilik bisnis dan tim keuangan memantau transaksi, laporan, dan arus kas dalam satu dasbor yang mudah dibaca.",
+    "zafeb membantu pemilik bisnis, UMKM, dan tim keuangan memahami laba serta arus kas, merapikan pembukuan, dan merencanakan anggaran.",
   appUrl: process.env.REACT_APP_DASHBOARD_URL as string,
   demoCompany: "PT Cahaya Nusantara",
 };

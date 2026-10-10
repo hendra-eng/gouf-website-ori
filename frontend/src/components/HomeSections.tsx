@@ -1,116 +1,32 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, X, ShieldCheck, Lock, DatabaseBackup, KeyRound, Quote, FileSpreadsheet, Landmark, CreditCard, ShoppingBag, Receipt, Users, Wallet, Code2 } from "lucide-react";
+import { BUSINESS_PRIORITIES, CUSTOMER_ROLES } from '@/content/customer';
+import { ArrowRight, Check, ShieldCheck, Lock, DatabaseBackup, KeyRound } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import StatusChip from "@/components/StatusChip";
 import { ARTICLES } from "@/content/insight";
 import { ArticleCard } from "@/pages/Insight";
-import { STORIES } from "@/pages/KisahPelanggan";
 
 export function StatsStrip() {
-  const STATS = [
-    ["18", "modul diperkenalkan", "Dari transaksi hingga analisis"],
-    ["2", "perusahaan fiktif", "Coba berpindah konteks klien"],
-    ["5", "langkah tur", "Kenali alur sebelum menjelajah"],
-    ["0", "data asli diminta", "Demo memakai data fiktif IDR"],
-  ];
-  return (
-    <section className="border-b border-line bg-white" data-testid="home-stats">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-line lg:grid-cols-4">
-        {STATS.map(([v, l, d], i) => (
-          <Reveal key={l} delay={i * 0.06} className={i >= 2 ? "border-t border-line lg:border-t-0" : ""}>
-            <div className="px-6 py-8 lg:px-8 lg:py-10">
-              <p className="nums font-display text-4xl font-extrabold tracking-tight text-brand sm:text-5xl">{v}</p>
-              <p className="mt-1 font-bold text-ink">{l}</p>
-              <p className="mt-1 text-xs text-inkMuted">{d}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
+ return <section className="customer-priorities" data-testid="home-priorities"><div className="customer-container"><div className="customer-section-heading"><span className="eyebrow">JAWAB PERTANYAAN YANG PENTING</span><h2>Keuangan yang dipahami.<br/>Usaha yang lebih terarah.</h2><p>zafeb menghubungkan pencatatan, laporan, dan perencanaan agar pemilik bisnis dan tim keuangan dapat melihat persoalan yang sama dengan lebih jelas.</p></div><div className="priority-grid">{BUSINESS_PRIORITIES.map(p=><article className="priority-card" key={p.id} data-testid={`customer-priority-${p.id}`}><span className="priority-number">{p.number} /</span><h3>{p.title}</h3><b>{p.question}</b><p>{p.description}</p><Link to={p.to} data-testid={`priority-link-${p.id}`}>{p.action}<ArrowRight size={16}/></Link></article>)}</div></div></section>;
 }
 
 export function CompareTeaser() {
-  const ROWS: [string, boolean, boolean][] = [
-    ["Satu sumber data untuk seluruh tim", false, true],
-    ["Ringkasan kas terbarui otomatis", false, true],
-    ["Laporan yang dibaca pemilik, bukan hanya akuntan", false, true],
-    ["Hak akses per peran & jejak perubahan", false, true],
-    ["Gratis di awal — mahal di waktu", true, false],
-  ];
-  return (
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <div className="grid items-center gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <SectionHeading eyebrow="Spreadsheet vs zafeb" title="Spreadsheet itu hebat — sampai ia mulai menyembunyikan masalah" sub="Kami tidak anti-spreadsheet. Kami hanya tahu kapan ia berhenti cukup." />
-          <Reveal className="mt-8">
-            <Link to="/perbandingan" className="btn-light" data-testid="home-compare-cta">Lihat perbandingan lengkap <ArrowRight size={16} /></Link>
-          </Reveal>
-        </div>
-        <Reveal className="lg:col-span-7" delay={0.1}>
-          <div className="overflow-hidden rounded-3xl border border-line bg-white" data-testid="home-compare-table">
-            <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-line bg-paper px-6 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-inkMuted">
-              <span>Kriteria</span><span className="w-24 text-center">Spreadsheet</span><span className="w-24 text-center text-brand">zafeb</span>
-            </div>
-            {ROWS.map(([k, a, b]) => (
-              <div key={k} className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-line px-6 py-4 text-sm last:border-0">
-                <span className="font-semibold text-ink">{k}</span>
-                <span className="flex w-24 justify-center">{a ? <Check size={16} className="text-emerald-600" /> : <X size={16} className="text-red-400" />}</span>
-                <span className="flex w-24 justify-center">{b ? <Check size={16} className="text-emerald-600" /> : <X size={16} className="text-red-400" />}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
+ const [view,setView]=useState<'profit'|'cash'>('profit');
+ const cash=view==='cash';
+ return <section className="customer-cash" data-testid="home-cash-education"><div className="customer-container customer-two-column"><div className="customer-section-heading"><span className="eyebrow">PAHAMI SEBELUM MEMUTUSKAN</span><h2>Penjualan naik.<br/>Mengapa kas masih terasa sempit?</h2><p>Laba mencatat hasil usaha. Kas menunjukkan uang yang benar-benar masuk dan keluar. Keduanya bisa berbeda ketika pelanggan belum membayar atau tagihan jatuh tempo lebih dulu.</p><ul className="customer-takeaways"><li><Check size={16}/><span><b>Jangan hanya melihat omzet.</b> Bandingkan dengan biaya untuk memahami laba.</span></li><li><Check size={16}/><span><b>Telusuri yang belum tertagih.</b> Piutang belum bisa dipakai membayar kewajiban.</span></li><li><Check size={16}/><span><b>Perhatikan waktunya.</b> Cocokkan penerimaan dengan jadwal pengeluaran.</span></li></ul><Link className="customer-text-link" to="/fitur/arus-kas" data-testid="cash-education-detail">Pelajari laba dan arus kas <ArrowRight size={16}/></Link></div><div className="cash-example" data-testid="cash-example"><div className="cash-example-header"><span>CONTOH SATU BULAN</span><span>Ilustrasi edukatif</span></div><h3>Penjualan Rp50 juta.<br/>Tidak semuanya sudah dibayar.</h3><div className="cash-example-tabs" role="tablist" aria-label="Bandingkan laba dan kas"><button role="tab" aria-selected={!cash} data-testid="cash-example-profit-tab" onClick={()=>setView('profit')} className={!cash?'active':''}>Sudut pandang laba</button><button role="tab" aria-selected={cash} data-testid="cash-example-cash-tab" onClick={()=>setView('cash')} className={cash?'active':''}>Sudut pandang kas</button></div><div className="cash-example-rows" role="tabpanel" aria-label={cash?'Perhitungan kas':'Perhitungan laba'} data-testid="cash-example-calculation"><div><span>{cash?'Uang pelanggan yang diterima':'Penjualan yang diakui'}</span><b>{cash?'Rp30 juta':'Rp50 juta'}</b></div><div><span>{cash?'Beban yang dibayar':'Beban periode ini'}</span><b>− Rp35 juta</b></div><div className={`cash-example-result ${cash?'is-cash':''}`}><span>{cash?'Perubahan kas':'Laba sebelum pajak'}</span><strong>{cash?'− Rp5 juta':'+ Rp15 juta'}</strong></div></div><p className="cash-example-explanation" data-testid="cash-example-explanation">{cash?'Usaha masih membukukan laba, tetapi kas berkurang Rp5 juta. Dari kas awal Rp20 juta, sisa kas menjadi Rp15 juta. Piutang Rp20 juta perlu diperhatikan.':'Selisih penjualan Rp50 juta dan beban Rp35 juta menghasilkan laba Rp15 juta. Namun, Rp20 juta dari penjualan masih berupa piutang.'}</p><p className="cash-example-note">Contoh sederhana dengan beban dibayar seluruhnya; tanpa pajak, penyusutan, investasi, atau pendanaan. Bukan data pelanggan.</p></div></div></section>;
 }
 
-export function IntegrationsStrip() {
-  const ITEMS = [
-    { icon: FileSpreadsheet, l: "Spreadsheet", s: "Tersedia" },
-    { icon: Landmark, l: "Bank", s: "Dalam pengembangan" },
-    { icon: CreditCard, l: "Pembayaran digital", s: "Dalam pengembangan" },
-    { icon: ShoppingBag, l: "Marketplace", s: "Direncanakan" },
-    { icon: Receipt, l: "Kasir / POS", s: "Direncanakan" },
-    { icon: Users, l: "Payroll", s: "Direncanakan" },
-    { icon: Wallet, l: "Pajak", s: "Direncanakan" },
-    { icon: Code2, l: "API", s: "Direncanakan" },
-  ] as const;
-  return (
-    <section className="border-y border-line bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading eyebrow="Integrasi" title="Terhubung dengan cara Anda berbisnis" sub="Data datang dari bank, kasir, marketplace, dan penggajian. Semua berakhir sebagai transaksi berkategori di satu dasbor." />
-          <Reveal>
-            <Link to="/integrasi" className="btn-light" data-testid="home-integrations-cta">Semua integrasi <ArrowRight size={16} /></Link>
-          </Reveal>
-        </div>
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4" data-testid="home-integrations-grid">
-          {ITEMS.map((it, i) => (
-            <Reveal key={it.l} delay={i * 0.04}>
-              <Link to="/integrasi" className="flex h-full flex-col gap-4 rounded-3xl border border-line bg-paper p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand/50">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand shadow-sm"><it.icon size={18} /></span>
-                <div className="flex flex-col gap-2">
-                  <p className="font-bold text-ink">{it.l}</p>
-                  <StatusChip status={it.s} />
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+export function PlanningSection() {
+ return <section className="customer-planning" data-testid="home-planning"><div className="customer-container customer-two-column"><div className="customer-section-heading"><span className="eyebrow">ANGGARAN & RENCANA USAHA</span><h2>Sebelum menambah biaya,<br/>lihat ruang geraknya.</h2><p>Rencana bisnis tidak berhenti pada target penjualan. Mulai dari hasil periode sebelumnya, susun asumsi pendapatan dan biaya, lalu periksa pengaruhnya terhadap laba.</p><Link className="customer-text-link" to="/fitur/anggaran-proyeksi" data-testid="home-budget-detail">Kenali perencanaan anggaran <ArrowRight size={16}/></Link></div><div className="planning-questions">{[['01','Jika pendapatan turun?','Uji apakah rencana biaya masih masuk akal saat penjualan berada di bawah target.'],['02','Jika ada biaya tambahan?','Lihat perubahan laba sebelum menambah anggota tim, sewa, atau pengeluaran rutin.'],['03','Jika peluang tumbuh terbuka?','Bandingkan skenario optimistis dengan kondisi dasar, lalu periksa kebutuhan kas secara terpisah.']].map(([n,t,d])=><article key={n} data-testid={`planning-question-${n}`}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}<Link to="/coba-demo?modul=budget" data-testid="home-budget-demo">Coba ubah asumsi dalam demo <ArrowRight size={16}/></Link></div></div></section>;
 }
 
 export function SecurityStrip() {
   const PILLARS = [
-    { icon: Lock, t: "Website melalui HTTPS" },
-    { icon: DatabaseBackup, t: "Data demo terpisah" },
-    { icon: KeyRound, t: "Tanpa kredensial admin" },
-    { icon: ShieldCheck, t: "Simulasi berlabel jelas" },
+    { icon: Lock, t: "Coba alur tanpa menyerahkan data bisnis" },
+    { icon: DatabaseBackup, t: "Siapkan kebutuhan laporan dan migrasi" },
+    { icon: KeyRound, t: "Bahas pembagian akses bersama tim" },
+    { icon: ShieldCheck, t: "Pahami kebijakan data sebelum memilih" },
   ];
   return (
     <section className="px-4 sm:px-6 lg:px-8">
@@ -118,8 +34,8 @@ export function SecurityStrip() {
         <div className="ledger-bg-dark mx-auto grid max-w-7xl gap-10 rounded-3xl bg-brand-deep px-8 py-12 text-white lg:grid-cols-12 lg:px-12 lg:py-16" data-testid="home-security">
           <div className="lg:col-span-5">
             <span className="eyebrow !text-mint">Keamanan & kepercayaan</span>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Data keuangan adalah data paling sensitif. Kami memperlakukannya begitu.</h2>
-            <Link to="/keamanan" className="btn-mint mt-8" data-testid="home-security-cta">Praktik keamanan kami <ArrowRight size={16} /></Link>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Pilih dengan tenang.<br/>Ketahui yang perlu ditanyakan.</h2>
+            <Link to="/keamanan" className="btn-mint mt-8" data-testid="home-security-cta">Praktik & pertanyaan keamanan <ArrowRight size={16} /></Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
             {PILLARS.map((p) => (
@@ -135,35 +51,8 @@ export function SecurityStrip() {
   );
 }
 
-export function StoriesTeaser() {
-  return (
-    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-      <SectionHeading eyebrow="Kisah pelanggan" title="Bagaimana bisnis seperti Anda memakainya" sub="Skenario ilustratif dari pola yang paling sering kami temui." />
-      <div className="mt-12 grid gap-6 lg:grid-cols-3">
-        {STORIES.slice(0, 3).map((s, i) => (
-          <Reveal key={s.slug} delay={i * 0.07}>
-            <Link to="/kisah-pelanggan" className="group flex h-full flex-col rounded-3xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/50" data-testid={`home-story-${i}`}>
-              <div className="flex items-center gap-2">
-                <span className="rounded-full bg-mint/15 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-brand">{s.industri}</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-inkMuted">{s.persona}</span>
-              </div>
-              <Quote size={20} className="mt-6 text-mint" />
-              <p className="mt-3 font-display text-lg font-bold leading-snug text-ink group-hover:text-brand">{s.kutipan}</p>
-              <p className="mt-4 text-sm text-inkMuted">{s.perusahaan}</p>
-              <div className="mt-auto grid grid-cols-3 gap-2 pt-6">
-                {s.hasil.map(([v, l]) => (
-                  <div key={l} className="rounded-xl bg-paper p-2.5">
-                    <p className="nums font-display text-sm font-extrabold text-brand">{v}</p>
-                    <p className="text-[9px] uppercase leading-tight tracking-wider text-inkMuted">{l}</p>
-                  </div>
-                ))}
-              </div>
-            </Link>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
+export function CustomerRoles() {
+ return <section className="customer-audiences" data-testid="home-audiences"><div className="customer-container"><div className="customer-section-heading"><span className="eyebrow">SATU ARAH, DUA KEBUTUHAN</span><h2>Pemilik usaha butuh gambaran.<br/>Tim keuangan butuh detail.</h2><p>Hubungkan keputusan bisnis dengan pekerjaan pencatatan melalui rutinitas yang saling melengkapi.</p></div><div className="customer-role-grid">{CUSTOMER_ROLES.map((r,i)=><article key={r.id} className={`customer-role ${i===0?'owner':'finance'}`} data-testid={`customer-role-${r.id}`}><span className="eyebrow">{r.label}</span><h3>{r.title}</h3><p>{r.intro}</p><div className="role-routine"><b>{r.routine}</b><ul>{r.points.map((point,j)=><li key={point}><span>0{j+1}</span>{point}</li>)}</ul></div><p className="role-outcome">{r.outcome}</p><Link to={r.to} data-testid={`customer-role-link-${r.id}`}>Lihat pendekatan untuk Anda <ArrowRight size={16}/></Link></article>)}</div></div></section>;
 }
 
 export function InsightTeaser() {

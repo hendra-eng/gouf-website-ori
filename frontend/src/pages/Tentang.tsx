@@ -15,7 +15,7 @@ export default function Tentang() {
     <div data-testid="page-tentang">
       <Seo
         title="Tentang — zafeb"
-        description="zafeb membangun zafeb, platform pembukuan dan keuangan untuk bisnis Indonesia."
+        description="Kenali pendekatan zafeb untuk membantu pemilik usaha dan tim keuangan memahami pembukuan, laporan, dan rencana bisnis."
       />
       <section className="ledger-bg">
         <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8 lg:py-24">
@@ -25,10 +25,10 @@ export default function Tentang() {
           </h1>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-inkMuted sm:text-lg" data-testid="tentang-story">
             <p>
-              <strong className="text-ink">zafeb</strong> membangun perangkat lunak untuk membantu bisnis di Indonesia mengelola keuangannya. zafeb lahir dari masalah yang akrab: data keuangan terpecah di banyak spreadsheet, dan keputusan menunggu karena angkanya tidak pernah siap.
+              <strong className="text-ink">zafeb</strong> berfokus pada hubungan antara pekerjaan pencatatan dan keputusan bisnis. Bagi pemilik usaha, angka harus membantu menjawab pertanyaan. Bagi tim keuangan, setiap jawaban perlu didukung catatan yang bisa ditelusuri.
             </p>
             <p>
-              Pendekatan kami sederhana — satu dasbor untuk transaksi, laporan, dan arus kas, dengan bahasa yang bisa dipahami pemilik bisnis sekaligus akuntan. Tidak ada klaim yang melampaui kenyataan: apa yang tertulis di situs ini adalah yang dapat Anda lihat pada demo.
+              Karena itu, pengalaman produk disusun di sekitar tiga kebutuhan: memahami laba dan arus kas, merapikan pembukuan serta laporan, dan menyiapkan anggaran. Tujuannya memberi konteks pada angka agar pembahasan keuangan berakhir pada langkah yang jelas.
             </p>
             <p className="rounded-2xl border border-dashed border-line bg-white/60 p-4 text-sm" data-testid="tentang-placeholder-note">
               Profil lengkap perusahaan (sejarah, tim, dan kantor) akan dilengkapi setelah detail resminya ditetapkan.

@@ -6,46 +6,10 @@ import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
 
 const SOLUTIONS = [
-  {
-    icon: Store,
-    label: "Untuk Pemilik Bisnis",
-    title: "Tahu posisi kas tanpa menunggu laporan akhir bulan",
-    points: [
-      "Ringkasan kas dan arus kas selalu terbuka di layar pertama",
-      "Transaksi harian tercatat dengan kategori yang konsisten",
-      "Cukup membaca — tidak perlu jadi akuntan",
-    ],
-  },
-  {
-    icon: Landmark,
-    label: "Untuk Tim Keuangan",
-    title: "Rekap lebih cepat, kolaborasi lebih rapi",
-    points: [
-      "Pencarian dan filter untuk membedah transaksi dengan cepat",
-      "Kategori dan catatan yang konsisten antar anggota tim",
-      "Ekspor data saat dibutuhkan",
-    ],
-  },
-  {
-    icon: Briefcase,
-    label: "Untuk Akuntan",
-    title: "Data klien yang siap diperiksa",
-    points: [
-      "Transaksi terstruktur dengan kategori jelas",
-      "Riwayat yang mudah dilacak ulang",
-      "Contoh berkas ekspor tersedia di demo interaktif",
-    ],
-  },
-  {
-    icon: LineChart,
-    label: "Untuk Pimpinan Perusahaan",
-    title: "Tren bisnis dalam sekali pandang",
-    points: [
-      "Grafik pemasukan vs pengeluaran antar periode",
-      "Laporan inti yang ringkas untuk rapat",
-      "Proyeksi tren digambarkan dari pola data",
-    ],
-  },
+  {icon:Store,label:'Untuk Pemilik Bisnis & UMKM',title:'Punya dasar sebelum menentukan langkah.',points:['Pahami laba dengan membandingkan pendapatan dan beban pada periode yang sama.','Baca piutang bersama saldo kas sebelum menambah pengeluaran.','Coba skenario biaya dan pendapatan untuk membahas rencana pertumbuhan.'],module:'overview'},
+  {icon:Landmark,label:'Untuk Tim Keuangan',title:'Jelaskan angka, bukan sekadar mengirim laporan.',points:['Catat transaksi dengan tanggal, deskripsi, kategori, dan status yang konsisten.','Telusuri transaksi yang membuat sebuah saldo berubah sebelum menyusun ringkasan.','Gunakan laba rugi, neraca, dan arus kas sebagai bahan pembahasan bersama pemilik usaha.'],module:'transactions'},
+  {icon:Briefcase,label:'Untuk Akuntan & Konsultan',title:'Tinjau catatan dalam konteks perusahaan yang tepat.',points:['Pilih perusahaan dan periode yang sesuai sebelum melakukan peninjauan.','Gunakan daftar akun serta jejak perubahan sebagai bahan pemeriksaan.','Diskusikan temuan dan kebutuhan akses bersama tim sebelum penggunaan produksi.'],module:'clients'},
+  {icon:LineChart,label:'Untuk Pimpinan Perusahaan',title:'Hubungkan target dengan kemampuan usaha.',points:['Tinjau tren pendapatan dan biaya sebelum menetapkan prioritas.','Bedakan pertumbuhan penjualan dengan pertumbuhan laba.','Uji skenario rencana biaya dan periksa kebutuhan kas secara terpisah.'],module:'budget'},
 ];
 
 export default function Solusi() {
@@ -58,8 +22,8 @@ export default function Solusi() {
       <section className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-20">
         <SectionHeading
           eyebrow="Solusi"
-          title="Satu platform, empat cara pandang"
-          sub="Peran Anda menentukan yang Anda butuhkan dari pembukuan. zafeb menjaga semuanya tetap dalam satu sumber data."
+          title="Peran berbeda. Keputusan keuangan yang saling terhubung."
+          sub="Pemilik bisnis perlu melihat gambaran. Tim keuangan perlu menelusuri detail. Mulai dari rutinitas yang sesuai dengan tanggung jawab Anda."
         />
       </section>
       <section className="mx-auto max-w-7xl space-y-6 px-4 py-14 sm:px-6 lg:px-8">
@@ -84,7 +48,7 @@ export default function Solusi() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/fitur" className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline" data-testid={`solusi-cta-${i}`}>
+                <Link to={`/coba-demo?modul=${s.module}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline" data-testid={`solusi-cta-${i}`}>
                   Coba di demo interaktif <ArrowRight size={14} />
                 </Link>
               </div>

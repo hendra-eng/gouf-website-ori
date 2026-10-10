@@ -10,10 +10,10 @@ export default function CtaBanner({ title, sub }: { title?: string; sub?: string
           <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-mint/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-mint/10 blur-3xl" />
           <h2 className="mx-auto max-w-2xl font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            {title || "Siap melihat zafeb secara langsung?"}
+            {title || "Apa yang ingin Anda rapikan lebih dulu?"}
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-white/70">
-            {sub || "Kirim permintaan demo dan jelajahi platform bersama tim kami — tanpa pembayaran, tanpa data asli."}
+            {sub || "Ceritakan alur pencatatan, laporan yang dibutuhkan, dan rencana bisnis Anda. Mulai dari demo atau diskusikan kebutuhan bersama tim."}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="/demo" className="btn-mint" data-testid="cta-banner-demo-button">

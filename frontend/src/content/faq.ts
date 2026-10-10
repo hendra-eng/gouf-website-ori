@@ -5,49 +5,17 @@ export interface FaqItem {
 }
 
 export const FAQ_ITEMS: FaqItem[] = [
-  {
-    kategori: "Umum",
-    q: "Apa itu zafeb?",
-    a: "zafeb adalah platform pembukuan dan keuangan dari zafeb yang membantu bisnis memantau transaksi, laporan, dan arus kas dalam satu dasbor.",
-  },
-  {
-    kategori: "Umum",
-    q: "Siapa yang cocok memakai zafeb?",
-    a: "Pemilik bisnis, tim keuangan, akuntan, dan pimpinan perusahaan yang ingin melihat posisi keuangan bisnis secara jelas tanpa merakit spreadsheet sendiri.",
-  },
-  {
-    kategori: "Demo & Harga",
-    q: "Bagaimana cara mencoba tanpa berkomitmen?",
-    a: "Jelajahi demo terpandu melalui tombol Coba Demo. Anda bisa menambah transaksi contoh, membaca laporan, dan mengubah skenario anggaran tanpa akun atau data asli.",
-  },
-  {
-    kategori: "Demo & Harga",
-    q: "Berapa harga paketnya?",
-    a: "Harga belum ditetapkan untuk versi publik ini. Setiap paket tertulis \u201cHubungi tim untuk harga\u201d dan tim kami menyusun penawaran sesuai kebutuhan Anda.",
-  },
-  {
-    kategori: "Demo & Harga",
-    q: "Apa yang terjadi setelah saya mengirim permintaan demo?",
-    a: "Anda menerima konfirmasi di layar berisi nomor referensi, lalu tim kami menghubungi Anda melalui email untuk menjadwalkan sesi demo.",
-  },
-  {
-    kategori: "Demo & Harga",
-    q: "Apakah ada masa percobaan?",
-    a: "Belum. Versi pertama situs ini berfokus pada permintaan demo dan minat paket — tanpa pembayaran atau pembuatan akun otomatis.",
-  },
-  {
-    kategori: "Data & Keamanan",
-    q: "Data apa yang dikumpulkan situs ini?",
-    a: "Hanya data yang Anda isi pada formulir: nama, email, perusahaan, dan detail kontak opsional. Situs ini tidak meminta password aplikasi maupun data keuangan asli Anda.",
-  },
-  {
-    kategori: "Data & Keamanan",
-    q: "Apakah data demo memakai data asli?",
-    a: "Tidak. Seluruh angka pada demo interaktif adalah data fiktif dalam Rupiah dan diberi label demo secara eksplisit.",
-  },
-  {
-    kategori: "Umum",
-    q: "Apakah situs tersedia dalam bahasa Inggris?",
-    a: "Saat ini bahasa Indonesia. Struktur teks sudah disiapkan agar terjemahan bahasa Inggris dapat ditambahkan.",
-  },
+  {kategori:'Umum',q:'Apakah zafeb cocok untuk usaha saya yang masih memakai spreadsheet?',a:'zafeb layak dipelajari jika transaksi makin sulit ditelusuri, laporan perlu dirapikan, atau pemilik usaha membutuhkan gambaran laba dan kas yang lebih jelas. Mulailah dengan mencocokkan alur pencatatan, laporan, dan anggaran pada demo dengan kebutuhan usaha Anda; tidak harus memindahkan semua data sekaligus.'},
+  {kategori:'Umum',q:'Apa bedanya laba, saldo kas, dan arus kas?',a:'Laba adalah selisih pendapatan dan beban dalam suatu periode. Saldo kas adalah uang yang tersedia pada suatu saat. Arus kas menjelaskan uang yang masuk dan keluar selama periode tersebut. Penjualan kredit dapat menghasilkan laba sebelum uangnya diterima, sehingga ketiganya perlu dibaca bersama.'},
+  {kategori:'Umum',q:'Laporan apa yang perlu saya lihat setiap bulan?',a:'Mulai dari laba rugi untuk kinerja usaha, neraca untuk aset dan kewajiban, serta arus kas untuk pergerakan uang. Lengkapi dengan piutang belum dibayar, kewajiban jatuh tempo, dan perbandingan terhadap rencana biaya. Frekuensi peninjauan bisa lebih sering bila arus kas usaha berubah cepat.'},
+  {kategori:'Umum',q:'Bagaimana anggaran membantu keputusan bisnis?',a:'Anggaran menghubungkan target dengan asumsi pendapatan dan biaya. Uji kemungkinan penjualan turun atau biaya naik sebelum membuat komitmen baru. Demo zafeb menyediakan perhitungan skenario sederhana; hasilnya bukan prediksi atau jaminan kinerja usaha.'},
+  {kategori:'Umum',q:'Apakah saya harus memahami akuntansi untuk mencoba?',a:'Tidak perlu menguasai seluruh istilah untuk mengikuti demo. Mulai dari pendapatan, beban, laba, dan kas, lalu gunakan glosarium untuk istilah baru. Untuk pembukuan yang dipakai secara resmi, libatkan pihak yang memahami akuntansi dan kewajiban usaha Anda.'},
+  {kategori:'Umum',q:'Apa yang perlu disiapkan sebelum beralih dari spreadsheet?',a:'Sepakati periode awal, rapikan daftar akun, siapkan saldo awal, serta tinjau daftar piutang dan utang. Uji laporan terlebih dahulu dan cocokkan hasilnya dengan catatan lama. Format impor dan langkah migrasi aplikasi perlu dibahas bersama tim sebelum perpindahan.'},
+  {kategori:'Demo & Harga',q:'Apa perbedaan Coba Demo dan Minta Demo Personal?',a:'Coba Demo langsung membuka tur dan aplikasi contoh di browser tanpa akun. Minta Demo Personal mengirim informasi kontak serta kebutuhan Anda untuk ditindaklanjuti. Keduanya tidak memungut pembayaran atau membuat langganan otomatis.'},
+  {kategori:'Demo & Harga',q:'Apa yang bisa saya coba dalam demo?',a:'Anda dapat berpindah perusahaan contoh, menambah atau mengubah transaksi, membaca laporan, mengekspor CSV, dan mengubah asumsi anggaran. Data demo fiktif; analisis AI, alur Agent AI, dokumen, serta persiapan pajak adalah simulasi edukatif, bukan layanan produksi.'},
+  {kategori:'Demo & Harga',q:'Bagaimana mendapatkan informasi harga yang sesuai?',a:'Ceritakan skala pencatatan, jumlah pengguna atau perusahaan, laporan yang dibutuhkan, serta rencana penggunaan Anda. Harga dan cakupan paket belum ditampilkan sebagai tarif final; konfirmasikan keduanya melalui permintaan demo atau kontak sebelum berlangganan.'},
+  {kategori:'Demo & Harga',q:'Apa yang terjadi setelah formulir permintaan dikirim?',a:'Jika berhasil disimpan, layar menampilkan nomor referensi permintaan untuk tindak lanjut. Simpan nomor tersebut. Pengiriman email otomatis belum diaktifkan; formulir tidak menjanjikan jadwal sesi sebelum dikonfirmasi oleh tim.'},
+  {kategori:'Data & Keamanan',q:'Apakah saya harus menyerahkan data keuangan untuk mencoba?',a:'Tidak. Demo memakai perusahaan dan transaksi fiktif. Jangan masukkan password, dokumen sensitif, atau angka keuangan asli. Perubahan hanya berada di sesi browser dan dapat dikembalikan melalui tombol Reset.'},
+  {kategori:'Data & Keamanan',q:'Hal keamanan apa yang perlu ditanyakan sebelum penggunaan bersama?',a:'Konfirmasikan siapa yang dapat melihat dan mengubah data, proses pencadangan serta pemulihan, retensi, lokasi penyimpanan, dan ketentuan ekspor atau penghapusan. Demo publik tidak membuktikan kebijakan keamanan aplikasi produksi.'},
+  {kategori:'Data & Keamanan',q:'Apakah demo sudah terhubung ke bank, pembayaran, atau layanan pajak?',a:'Tidak. Demo mandiri tidak menghubungi rekening, memproses pembayaran, atau melakukan pelaporan pajak. Kebutuhan integrasi dan ketersediaannya pada aplikasi harus dikonfirmasi dalam diskusi terpisah.'},
 ];

@@ -48,7 +48,7 @@ export const PACKAGES: Paket[] = [
 export const PRICE_UNSET = "Hubungi tim untuk harga";
 
 export const PRICING_NOTE =
-  "Harga setiap paket belum ditetapkan untuk versi publik ini. Daripada menampilkan angka yang belum final, tim kami menyusun penawaran sesuai kebutuhan bisnis Anda.";
+  "Gunakan paket berikut sebagai bahan diskusi kebutuhan. Harga, cakupan fitur, akses pengguna, dan layanan ditetapkan dalam penawaran yang dikonfirmasi bersama tim.";
 
 export interface ComparisonRow {
   label: string;

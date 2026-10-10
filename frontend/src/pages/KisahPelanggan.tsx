@@ -7,56 +7,20 @@ import StatusChip from "@/components/StatusChip";
 import CtaBanner from "@/components/CtaBanner";
 
 export const STORIES = [
-  {
-    slug: "kedai-kopi-tiga-cabang",
-    industri: "F&B",
-    perusahaan: "Kedai kopi dengan 3 cabang",
-    persona: "Pemilik",
-    tantangan: "Setiap cabang mengirim rekap penjualan lewat pesan singkat. Pemilik baru tahu kas bersih bulanan dua minggu setelah bulan berakhir.",
-    solusi: "Kasir setiap cabang mencatat penjualan harian ke satu dasbor dengan kategori yang sama. Pengeluaran bahan baku dicatat oleh kepala cabang.",
-    hasil: [["H+1", "ringkasan kas tersedia"], ["3", "cabang, 1 laporan"], ["2 minggu", "lebih cepat tahu posisi kas"]],
-    kutipan: "Sekarang saya buka dasbor pagi hari dan tahu cabang mana yang perlu perhatian — bukan menunggu rekap.",
-  },
-  {
-    slug: "agensi-desain",
-    industri: "Jasa profesional",
-    perusahaan: "Agensi desain 14 orang",
-    persona: "Tim keuangan",
-    tantangan: "Piutang klien tercecer di email, invoice, dan spreadsheet berbeda. Rekap akhir bulan memakan 4 hari kerja.",
-    solusi: "Semua pemasukan dicatat per klien dengan catatan nomor faktur. Filter periode dan kategori menggantikan pencarian manual di tiga tempat.",
-    hasil: [["4 → 1", "hari untuk tutup buku"], ["100%", "transaksi berkategori"], ["0", "spreadsheet versi ganda"]],
-    kutipan: "Yang paling terasa: tidak ada lagi debat soal angka mana yang benar sebelum rapat.",
-  },
-  {
-    slug: "konsultan-pembukuan",
-    industri: "Akuntansi",
-    perusahaan: "Konsultan pembukuan lepas, 12 klien UMKM",
-    persona: "Akuntan",
-    tantangan: "Setiap klien mengirim data dalam format berbeda. Sebagian besar jam kerja habis untuk merapikan, bukan menganalisis.",
-    solusi: "Klien mencatat transaksi langsung di zafeb dengan kategori yang disepakati bersama. Konsultan meninjau dan mengekspor laporan dari satu akses.",
-    hasil: [["12", "klien dalam satu akses"], ["60%", "waktu merapikan berkurang"], ["1 klik", "ekspor laporan inti"]],
-    kutipan: "Hal pertama yang hilang adalah pertanyaan ‘ini transaksi apa?’ lewat WhatsApp. Catatannya sudah ada di setiap baris.",
-  },
-  {
-    slug: "distributor-sembako",
-    industri: "Distribusi",
-    perusahaan: "Distributor sembako skala menengah",
-    persona: "Pimpinan",
-    tantangan: "Omzet besar, tapi pimpinan tidak yakin apakah bisnis benar-benar untung karena laba rugi dan kas tidak pernah dibaca berdampingan.",
-    solusi: "Laporan laba rugi dan arus kas disajikan bersisian dengan grafik 6 bulan. Rapat bulanan memakai satu layar yang sama.",
-    hasil: [["6 bulan", "tren terlihat sekilas"], ["2", "laporan, 1 layar"], ["Bulanan", "rapat berbasis data"]],
-    kutipan: "Baru kali ini saya mengerti kenapa untung di atas kertas tapi kas terasa tipis.",
-  },
+ {slug:'usaha-jasa',industri:'Jasa profesional',perusahaan:'Saat proyek selesai, pembayaran belum tentu masuk.',persona:'Pemilik usaha',tantangan:'Usaha telah menagihkan pekerjaan, tetapi sebagian pelanggan belum membayar. Pemilik perlu menilai kemampuan membayar biaya rutin tanpa hanya mengandalkan omzet.',solusi:'Tinjau penjualan yang diakui, pembayaran yang sudah diterima, dan piutang yang belum lunas. Baca laba bersama arus kas sebelum menyetujui pengeluaran baru.',hasil:[['Piutang','Kenali yang belum dibayar'],['Kas','Periksa uang tersedia'],['Biaya','Susun prioritas bayar']],kutipan:'Apakah uang yang tersedia cukup untuk kewajiban terdekat?',module:'receivables'},
+ {slug:'tutup-buku',industri:'Lintas industri',perusahaan:'Beban meningkat. Tim perlu menjelaskan penyebabnya.',persona:'Tim keuangan',tantangan:'Saldo beban lebih besar dari periode sebelumnya. Angka total belum menjelaskan apakah perubahan datang dari biaya rutin, pengeluaran sesekali, atau klasifikasi transaksi.',solusi:'Cari transaksi pada periode terkait dan tinjau kategorinya. Cocokkan catatan dengan bukti, lalu rangkum penyebab perubahan untuk dibahas dengan pemilik bisnis.',hasil:[['Telusuri','Periksa sumber angka'],['Tinjau','Cocokkan kategori'],['Jelaskan','Bawa konteks ke rapat']],kutipan:'Perubahan biaya mana yang perlu perhatian lebih dulu?',module:'transactions'},
+ {slug:'rencana-pertumbuhan',industri:'UMKM',perusahaan:'Ada rencana menambah biaya tetap.',persona:'Pemilik & keuangan',tantangan:'Tim mempertimbangkan penambahan anggota atau ruang usaha. Target penjualan saja belum cukup menjadi dasar persetujuan biaya.',solusi:'Gunakan pendapatan dan beban sebelumnya sebagai dasar. Bandingkan kondisi dasar, penjualan lebih rendah, serta biaya lebih tinggi. Tinjau kebutuhan kas sebagai langkah terpisah.',hasil:[['Dasar','Mulai dari hasil usaha'],['Skenario','Uji perubahan asumsi'],['Evaluasi','Tinjau rencana bersama']],kutipan:'Seberapa besar ruang usaha menanggung biaya tambahan?',module:'budget'},
+ {slug:'persiapan-rapat',industri:'Lintas industri',perusahaan:'Rapat keuangan perlu menghasilkan tindakan.',persona:'Pemilik & keuangan',tantangan:'Tim sudah memiliki laporan, tetapi rapat hanya membacakan angka. Pertanyaan tentang laba, posisi kas, dan prioritas berikutnya belum terhubung.',solusi:'Mulai dengan tiga pertanyaan: apa yang berubah, mengapa berubah, dan apa yang perlu ditindaklanjuti. Gunakan laba rugi, neraca, dan arus kas sebagai bahan yang saling melengkapi.',hasil:[['Kinerja','Baca laba dan beban'],['Posisi','Periksa aset & utang'],['Arah','Sepakati tindak lanjut']],kutipan:'Keputusan apa yang perlu diambil dari laporan bulan ini?',module:'statements'},
 ];
 
 export default function KisahPelanggan() {
   return (
     <div data-testid="page-kisah-pelanggan">
-      <Seo title="Kisah Pelanggan — zafeb" description="Skenario penggunaan zafeb di F&B, jasa profesional, akuntansi, dan distribusi." />
+      <Seo title="Contoh Penggunaan — zafeb" description="Contoh cara meninjau piutang, menjelaskan perubahan biaya, menyiapkan anggaran, dan membahas laporan bisnis." />
       <PageHero
-        eyebrow="Kisah pelanggan"
-        title="Bagaimana bisnis seperti Anda memakai zafeb setiap hari."
-        sub="Empat skenario yang disusun dari pola masalah yang paling sering kami temui. Angka dan nama bersifat ilustratif — cerita nyata pelanggan akan ditampilkan seiring platform digunakan."
+        eyebrow="Contoh penggunaan"
+        title="Mulai dari situasi yang dekat dengan usaha Anda."
+        sub="Skenario edukatif untuk menghubungkan persoalan sehari-hari dengan peninjauan keuangan. Bukan testimoni pelanggan atau janji hasil."
         testId="kisah-hero"
       >
         <StatusChip status="Ilustratif" />
@@ -73,7 +37,7 @@ export default function KisahPelanggan() {
                     <span className="rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">{s.persona}</span>
                   </div>
                   <h2 className="mt-5 font-display text-2xl font-bold leading-snug">{s.perusahaan}</h2>
-                  <Quote size={22} className="mt-6 text-mint" />
+                  <span className="mt-6 block font-mono text-[10px] uppercase tracking-wider text-mint">Pertanyaan utama</span>
                   <p className="mt-2 text-base leading-relaxed text-white/80">{s.kutipan}</p>
                 </div>
                 <div className="mt-8 grid grid-cols-3 gap-3">
@@ -94,7 +58,7 @@ export default function KisahPelanggan() {
                   <p className="eyebrow">Yang dilakukan dengan zafeb</p>
                   <p className="mt-2 text-sm leading-relaxed text-ink">{s.solusi}</p>
                 </div>
-                <Link to="/fitur" className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline" data-testid={`kisah-cta-${i}`}>
+                <Link to={`/coba-demo?modul=${s.module}`} className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline" data-testid={`kisah-cta-${i}`}>
                   Lihat alurnya di demo interaktif <ArrowRight size={14} />
                 </Link>
               </div>
@@ -103,7 +67,7 @@ export default function KisahPelanggan() {
         ))}
       </section>
 
-      <CtaBanner title="Ingin cerita Anda ada di sini?" sub="Mulai dari demo. Kami pelajari alur bisnis Anda dan tunjukkan bentuknya di zafeb." />
+      <CtaBanner title="Situasi mana yang paling dekat dengan usaha Anda?" sub="Ceritakan tantangannya, lalu diskusikan laporan dan alur kerja yang dibutuhkan bersama tim." />
     </div>
   );
 }

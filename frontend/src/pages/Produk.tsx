@@ -7,17 +7,14 @@ import DashboardMock from "@/components/DashboardMock";
 import CtaBanner from "@/components/CtaBanner";
 
 const MODULES = [
-  { icon: LayoutDashboard, name: "Pantau keuangan", desc: "Pendapatan, laba, kas, piutang, dan utang dalam konteks perusahaan yang dipilih." },
-  { icon: ArrowLeftRight, name: "Catat & telusuri", desc: "Transaksi, jurnal, daftar akun, dokumen pendukung, dan riwayat aktivitas." },
-  { icon: FileBarChart, name: "Laporan & rencana", desc: "Laba rugi, neraca, arus kas, ekuitas, serta skenario anggaran dan proyeksi." },
-  { icon: Users, name: "Klien & analisis", desc: "Berpindah konteks perusahaan dan jelajahi contoh penjelasan keuangan berbasis data." },
+  { icon: LayoutDashboard, name: "Pahami laba & kas", desc: "Baca hasil usaha bersama uang yang tersedia. Telusuri piutang ketika pendapatan belum menjadi penerimaan." },
+  { icon: ArrowLeftRight, name: "Rapikan catatan", desc: "Lengkapi transaksi dengan tanggal, kategori, deskripsi, dan status pembayaran untuk memudahkan peninjauan." },
+  { icon: FileBarChart, name: "Jelaskan laporan", desc: "Gunakan laba rugi, neraca, dan arus kas untuk menjawab pertanyaan tim tentang kinerja serta posisi keuangan." },
+  { icon: Users, name: "Rencanakan anggaran", desc: "Jadikan hasil periode sebelumnya sebagai dasar asumsi pendapatan dan biaya sebelum menambah komitmen." },
 ];
 
-const FLOW = [
-  { icon: MousePointerClick, title: "1. Catat", desc: "Setiap transaksi masuk dengan kategori yang konsisten." },
-  { icon: ScanSearch, title: "2. Telusuri", desc: "Cari dan filter untuk memahami dari mana angka berasal." },
-  { icon: Database, title: "3. Ambil keputusan", desc: "Bandingkan periode, baca laporan, dan putuskan langkah berikutnya." },
-];
+import { MONTHLY_ROUTINE } from '@/content/customer';
+const FLOW = MONTHLY_ROUTINE.map(([title,desc],i)=>({icon:[MousePointerClick,ScanSearch,FileBarChart,Database][i],title:`${i+1}. ${title}`,desc}));
 
 export default function Produk() {
   return (
@@ -31,10 +28,10 @@ export default function Produk() {
           <div>
             <span className="eyebrow">Produk</span>
             <h1 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl" data-testid="produk-title">
-              Satu dasbor, seluruh siklus keuangan harian.
+              Hubungkan pencatatan harian dengan gambaran bisnis.
             </h1>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-inkMuted sm:text-lg">
-              Dari pencatatan transaksi hingga laporan yang siap dibaca — zafeb menjaga setiap angka tetap nyambung, sehingga tidak ada waktu yang hilang mencarinya.
+              Pemilik usaha perlu memahami laba dan kas. Tim keuangan perlu menelusuri catatan di baliknya. Kenali alur zafeb untuk menata transaksi, membaca laporan, dan menyusun rencana biaya.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link to="/coba-demo" className="btn-primary" data-testid="produk-cta-explore">
@@ -48,7 +45,7 @@ export default function Produk() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <SectionHeading eyebrow="Modul inti" title="Empat modul yang saling terhubung" sub="Setiap modul menyumbang ke satu tujuan: angka yang bisa dipercaya." />
+        <SectionHeading eyebrow="Kebutuhan utama" title="Dari pekerjaan harian ke keputusan usaha" sub="Pahami fungsi setiap bagian sebelum menyesuaikannya dengan cara kerja tim Anda." />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {MODULES.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.07}>
@@ -64,8 +61,8 @@ export default function Produk() {
 
       <section className="border-t border-line bg-white">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <SectionHeading eyebrow="Cara bekerja" title="Tiga langkah, dari catatan ke keputusan" />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <SectionHeading eyebrow="Rutinitas keuangan" title="Empat tahap untuk meninjau satu periode usaha" />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {FLOW.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.08}>
                 <div className="flex h-full flex-col gap-3 rounded-3xl bg-paper p-8" data-testid={`produk-flow-${i}`}>
@@ -79,7 +76,7 @@ export default function Produk() {
         </div>
       </section>
 
-      <CtaBanner title="Ingin melihat modul-modul ini dengan data nyata?" sub="Minta demo dan tim kami memandu Anda melewati setiap modul." />
+      <CtaBanner title="Mulai dari alur kerja yang paling penting untuk Anda." sub="Jelajahi demo, atau bawa pertanyaan tentang pembukuan dan laporan ke sesi personal." />
     </div>
   );
 }
